@@ -1,0 +1,21 @@
+<%= form_for([@how_to_topic, @how_to_step]) do |f| %>
+  <% if @how_to_step.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@how_to_step.errors.count, "error") %> prohibited this how_to_step from being saved:</h2>
+
+      <ul>
+      <% @how_to_step.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_field :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Add this step" %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>How To Topics</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @how_to_topics.each do |how_to_topic| %>
+      <tr>
+        <td><%= how_to_topic.title %></td>
+        <td><%= link_to 'Show how to', how_to_topic %></td>
+        <td><%= link_to 'Edit how to', edit_how_to_topic_path(how_to_topic) %></td>
+        <td><%= link_to 'Delete how to', how_to_topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New how to topic', new_how_to_topic_path %>
