@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p><strong>How To:</strong></p>
+
+<h1><%= @how_to_topic.title %></h1>
+
+<p><strong>Description: </strong><%= @how_to_topic.description %></p>
+
+<h3><strong>Steps:</strong><br/></h3>
+<p>
+  <% count = 1 %>
+  <% @how_to_topic.how_to_steps.each do |step| %>
+    <strong>Step <%= count %>.</strong>
+     <%= step.content %>
+    <%= link_to 'Edit step', edit_how_to_topic_how_to_step_path(@how_to_topic, step) %> |
+    <%= link_to 'Delete step', how_to_topic_how_to_step_path(@how_to_topic, step), method: :delete, data: { confirm: 'Are you sure?' } %><br />
+     <% count += 1 %>
+  <% end %>
+</p>
+
+<%= link_to 'Add a step', new_how_to_topic_how_to_step_path(@how_to_topic) %>
+
+<%= link_to 'Edit topic', edit_how_to_topic_path(@how_to_topic) %> |
+<%= link_to 'Back', how_to_topics_path %>

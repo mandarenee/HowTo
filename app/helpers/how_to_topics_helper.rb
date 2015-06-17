@@ -1,0 +1,2 @@
+module HowToTopicsHelper
+end
